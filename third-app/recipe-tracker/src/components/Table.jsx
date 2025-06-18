@@ -14,10 +14,10 @@ export default function Table({submission,onBack}){
                 <tbody>
                     {submission.map((t,i)=>(
                          <tr key={i}>
-                         <tb>{t.name}
-                         </tb>
-                         <tb>{t.type}</tb>
-                         <tb>{t.difficulty}</tb>
+                         <td>{t.name}
+                         </td>
+                         <td>{t.type}</td>
+                         <td>{t.difficulty}</td>
                      </tr>
                     ))}
                    

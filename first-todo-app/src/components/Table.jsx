@@ -24,7 +24,7 @@ export default function Table({ submission, onBack, onEdit, onDelete }) {
                   </button>
                   <button
     onClick={() => onDelete(t.id)}
-    className="ml-2 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-medium"
+    className="m-2 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-medium"
   >
     Delete
   </button>
