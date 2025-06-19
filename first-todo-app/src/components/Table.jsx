@@ -23,7 +23,7 @@ export default function Table({ submission, onBack, onEdit, onDelete }) {
                     Edit
                   </button>
                   <button
-    onClick={() => onDelete(t.id)}
+    onClick={() => onDelete(t.id)} //imp to pass t.id
     className="m-2 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-medium"
   >
     Delete

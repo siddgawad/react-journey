@@ -22,7 +22,7 @@ export default function App(){
     } else {
       // Add new
       const newTodo = {
-        id: crypto.randomUUID(),
+        id: crypto.randomUUID(), // this generates a unique id
         title: todoData.title,
         description: todoData.description,
       };
