@@ -25,7 +25,7 @@ export default function Form({todoData,setTodoData,handleSubmit,editMode,current
                 </div>
             
             </>):(<>
-                <div>
+                <div className="max-w-md mx-auto mt-12 bg-white shadow-lg rounded-xl p-8 ">
                 <h1>Todo App</h1>
             </div>
                 <h2>Title</h2>
