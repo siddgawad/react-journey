@@ -1,4 +1,4 @@
-function BookForm({ bookData, setBookData, onSubmit, editMode, onCancel }) {
+export default function BookForm({ bookData, setBookData, onSubmit, editMode, onCancel }) {
     function handleChange(e) {
       setBookData({ ...bookData, [e.target.name]: e.target.value });
     }
