@@ -1,16 +1,17 @@
 
 import { BookmarkItem } from "./BookmarkItem";
-import { Bookmark } from "./types";
+import { Bookmark } from "../types";
 
 type Props = {
     bookmarks: Bookmark[];
+    onDelete:(id:number)=>void;
 };
 
-export const BookmarkList = ({bookmarks}:Props)=>{
+export const BookmarkList = ({bookmarks,onDelete}:Props)=>{
     return(
         <ul>
-            {bookmarks.map((bookmark)=>(
-                <BookmarkItem key={bookmark.id} id={bookmark.id} title={bookmark.title} url={bookmark.url} />
+            {bookmarks.map((b)=>(
+                <BookmarkItem key={b.id} bookmark={b} onDelete={onDelete}/>
             ))}
         </ul>
     )
