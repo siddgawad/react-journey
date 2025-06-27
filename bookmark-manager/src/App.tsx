@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import { Bookmark } from "./types";
 import { BookmarkList } from "./components/BookmarkList";
 
@@ -11,6 +11,7 @@ export default function App() {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
+  const firstLoad = useRef(true);
 
   const addBookmark = () => {
     if (!title.trim() || !url.trim()) {
@@ -34,10 +35,14 @@ export default function App() {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("bookmarks");
-    if (saved) {
-      setBookmarks(JSON.parse(saved));
+    if(firstLoad.current){
+      firstLoad.current = false;
+      const saved = localStorage.getItem("bookmarks");
+      if (saved) {
+        setBookmarks(JSON.parse(saved));
+      }
     }
+    
   }, []);
 
   useEffect(() => {
