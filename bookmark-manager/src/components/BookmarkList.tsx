@@ -9,13 +9,8 @@ type Props = {
 
 export const BookmarkList = ({bookmarks,onDelete}:Props)=>{
     return(
-        // <ul>
-        //     {bookmarks.map((b)=>(
-        //         <BookmarkItem key={b.id} bookmark={b} onDelete={onDelete}/>
-        //     ))}
-        // </ul>
-
-        <div className="bg-gray-200 max-h-xl">
+    
+        <div className="bg-gray-200">
             {bookmarks.map((b)=>(
                 <BookmarkItem key={b.id} bookmark={b} onDelete={onDelete} />
             ))}
