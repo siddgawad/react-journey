@@ -31,7 +31,7 @@ export default function App() {
   const [dropdownState, setDropDownState] = useState(false);
   const unreadCount = notification.filter(n => !n.notifRead).length;
 
-  function handleDropdown() {
+  function handleDropdown() { // toggles state of dropdown
     setDropDownState((prev) => !prev);
   }
 

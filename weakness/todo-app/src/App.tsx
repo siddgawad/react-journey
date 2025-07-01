@@ -6,8 +6,10 @@ export default function App(){
   const [todos,setTodos] = useState<Todo[]>([]);
   const[inputState,setInputState] = useState(false);
 
+
   function handleSubmit(task:string){
 setTodos([...todos,{id:Date.now(),task:task,isDone:false}]);
+
   }
 
   function markAsDone(id:number){
