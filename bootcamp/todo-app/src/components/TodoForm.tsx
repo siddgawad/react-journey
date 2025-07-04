@@ -19,7 +19,7 @@ return(
     }}
     className="flex gap-2">
    <input value={input} placeholder="Enter Todo Title" 
-   onChange={(e)=>setInput(e.target.value)}
+   onChange={(e)=>setInput(e.target.value)} autoFocus
    />     
    <button type="submit">Add</button>
 

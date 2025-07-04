@@ -4,9 +4,10 @@ import type {Todo} from "../../types";
 interface Props {
     todo: Todo
     onToggle:(id:number)=>void
+    onDelete:(id:number)=>void;
 }
 
-export const TodoItem = ({todo,onToggle}:Props)=>{
+export const TodoItem = ({todo,onToggle,onDelete}:Props)=>{
     
     return(
         <div>
@@ -17,7 +18,9 @@ export const TodoItem = ({todo,onToggle}:Props)=>{
             <button onClick={()=>onToggle(todo.id)}>
                 {todo.isDone? "Undo":"Done" }
             </button>
+            <button onClick={()=>onDelete(todo.id)}>Delete</button>
          </li>
         </div>
     )
 }
+

@@ -1,10 +1,32 @@
-import React, { useState } from "react";
+import { useEffect,useState } from "react";
 import { TodoForm } from "../src/components/TodoForm"
 import { TodoList } from "../src/components/TodoList"
 import type { Todo } from "../types";
 
 export default function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {  
+    try {
+      const saved = localStorage.getItem("todos");
+      if (saved) {
+        const parsed = JSON.parse(saved) as Todo[];
+        if (Array.isArray(parsed)) {
+          return parsed;
+        }
+      }
+    } catch (err) {
+      console.error("Invalid JSON in localStorage", err);
+    }
+    return [];
+  });
+
+
+
+ 
+
+
+  useEffect(()=>{
+    localStorage.setItem("todos",JSON.stringify(todos));
+  },[todos])
 
   const addTodo = (task: string) =>
     setTodos((prev) => [...prev, { id: Date.now(), task, isDone: false }]);
@@ -14,10 +36,15 @@ export default function App() {
       prev.map((t) => (t.id === id ? { ...t, isDone: !t.isDone } : t))
     );
 
+    const onDelete = (id:number)=>{
+      const updatedTodos = todos.filter((todo)=>todo.id!==id);
+      setTodos(updatedTodos);
+    }
+
   return (
     <main className="p-4 space-y-4">
       <TodoForm onSubmit={addTodo} />
-      <TodoList todos={todos} onToggle={toggleTodo} />
+      <TodoList todos={todos} onToggle={toggleTodo} onDelete={onDelete}/>
     </main>
   );
 }
