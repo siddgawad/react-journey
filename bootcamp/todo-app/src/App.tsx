@@ -20,10 +20,6 @@ export default function App() {
   });
 
 
-
- 
-
-
   useEffect(()=>{
     localStorage.setItem("todos",JSON.stringify(todos));
   },[todos])
@@ -42,7 +38,7 @@ export default function App() {
     }
 
   return (
-    <main className="p-4 space-y-4">
+    <main className="min-h-screen bg-gray-100 flex flex-col items-center justify-start p-6">
       <TodoForm onSubmit={addTodo} />
       <TodoList todos={todos} onToggle={toggleTodo} onDelete={onDelete}/>
     </main>
