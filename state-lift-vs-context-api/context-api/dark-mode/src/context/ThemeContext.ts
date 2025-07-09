@@ -1,8 +1,9 @@
 import { createContext } from "react";
 
-type themeProps={
-    theme: "light"|"dark";
+type ThemeContextProps = {
+    theme:"light"|"dark";
     toggleTheme:()=>void;
 }
 
-export const themeContext = createContext<themeProps | null>(null);
+export const ThemeContext = createContext<ThemeContextProps|null>(null);
+
