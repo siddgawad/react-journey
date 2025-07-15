@@ -20,11 +20,11 @@ type AuthContextType = {
   logout: () => void;
 };
 
-export const AuthContext = createContext<AuthContextType | null>(null); //this creates a new shared space (context box) that will hold the props like user,login and logout function
-
+export const AuthContext = createContext<AuthContextType | null>(null); //this creates a new shared space (context box) that will hold the props like user,login and logou
 /*
 createContext<AuthContextType | null> tells TypeScript:
 This will store either the full context data
 Or null if the provider isn’t set
 Initial value is null because no one is logged in yet
 */
+    
