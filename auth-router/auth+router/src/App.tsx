@@ -1,25 +1,27 @@
-import { BrowserRouter,Route,Routes } from "react-router-dom";
-import { AuthProvider } from "./context/AuthProvider";
-import { Navbar } from "./components/Navbar";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoginPage } from "./components/LoginPage";
-import { DashboardPage } from "./components/DashboardPage";
+import { Dashboard } from "./components/DashboardPage";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/AuthProvider";
+import { HomePage } from "./components/HomePage";
 
-export default function App(){
-  return(
+export default function App() {
+  return (
     <BrowserRouter>
-    <AuthProvider>
-      <Navbar />
-      <Routes>
-        <Route path = "/" element={<div>Hello, welcome Home</div>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path = "/dashboard" element = {
-          <ProtectedRoute>
-            <DashboardPage />
-          </ProtectedRoute>
-        }/>
-      </Routes>
-    </AuthProvider>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
-  )
+  );
 }
