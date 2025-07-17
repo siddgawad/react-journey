@@ -1,9 +1,9 @@
 import { RecoilRoot } from "recoil";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import { AllTasks } from "./components/allTasks";
-import { HighTasks } from "./components/highTasks";
-import { TaskInputForm } from "./components/taskInputForm";
-import { TasksCompleted } from "./components/tasksCompleted";
+import { TaskInputForm } from "./components/TaskInputForm";
+import { AllTasks } from "./components/AllTasks";
+import { HighTasks } from "./components/HighTasks";
+import { TasksCompleted } from "./components/TasksCompleted";
 
 
 export default function App(){
